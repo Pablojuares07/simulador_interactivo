@@ -64,14 +64,20 @@ Seguro.prototype.cotizarSeguro =  function(){
     // cada año que la diferencia es mayor se reduce el costo del seguro
     cantidad -= ((diferencia * 3) * cantidad)/100;
     /*
-    Si el seguro es básico se multiplica por un 30% mas.
-    Si el seguro es completo se multiplica por un 50% mas.
+    Si el seguro es Respon. civil se multiplica por un 22% mas.
+    Si el seguro es Terceros se multiplica por un 46% mas.
+    Si el seguro es Terceros completos se multiplica por un 61% mas.
+    Si el seguro es Todo riesgo se multiplica por un 94% mas.
     */
-   if(this.tipo === 'basico'){
-       cantidad *= 1.30;
-   }else{
-        cantidad *= 2;
-   }
+   if(this.tipo === 'civil'){
+       cantidad *= 0.22;
+    }else if(this.tipo === 'terceros'){
+        cantidad *= 0.46;
+    }else if(this.tipo === 'tercecompletos'){
+        cantidad *= 0.61;
+    }else if(this.tipo === 'todoriesgo'){
+    cantidad *= 0.94;
+    }
 
    return cantidad;
 }
@@ -165,7 +171,6 @@ UI.prototype.mostrarResultado = (total,seguro) =>{
         `;
     const resultadoDiv = document.querySelector('#resultado');
     
-
     // Mostrar spinner
     const spinner = document.querySelector('#cargando');
     spinner.style.display = 'block';
@@ -174,8 +179,10 @@ UI.prototype.mostrarResultado = (total,seguro) =>{
         // se borra el spinner y se muestra el resultado
         resultadoDiv.appendChild(div);
     }, 2000);
+    
 
 }
+
 // Instanciar UI
 const ui = new UI();
 
@@ -191,6 +198,7 @@ function eventListeners(){
     const formulario = document.querySelector('#cotizar-seguro');
     formulario.addEventListener('submit', cotizarSeguro);
 }
+
 
 function cotizarSeguro(e){
     e.preventDefault();
