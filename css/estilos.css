@@ -1,4 +1,5 @@
-  body {
+  
+body {
     background: #e96443;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #904e95, #e96443); 
@@ -129,3 +130,67 @@
       -webkit-transform: scaleY(1.0);
     }
   }
+
+
+
+  /* COMIENZO NAV */
+.nav_1 {
+  background: #151b60;
+  height: 80px;
+  color: #ffffff;
+  z-index: 100%;
+}
+
+.nav_container {
+  display: flex;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_logo {
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.nav_menu {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 3em;
+}
+
+.nav_item {
+  color: #ffffff;
+  text-decoration: none;
+  --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+
+.nav_item ::after {
+  content: "";
+  display: block;
+  background: #fff;
+  width: 90%;
+  margin-top: 3px;
+  height: 3px;
+  clip-path: var(--clippy);
+  transition: clip-path 0.3s;
+}
+
+.nav_item :hover {
+  --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.nav_input {
+  display: none;
+}
+
+.nav_input:checked + .nav_menu {
+  background: #99e0ea;
+}
+
+.nav_label,
+.nav_input {
+  display: none;
+}
