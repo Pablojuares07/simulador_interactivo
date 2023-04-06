@@ -1,229 +1,278 @@
-// Constructores
+document.addEventListener('DOMContentLoaded', () => {
+    // Variables
+    const baseDeDatos = [
+        {
+            id: 1,
+            nombre: 'Pechugas de pollo',
+            precio: 1350,
+            imagen: '../proyecto/assets/1.png'
+        },
+        {
+            id: 2,
+            nombre: 'Pata y muslo 3kg',
+            precio: 2040,
+            imagen: './assets/pataymuslo.jfif'
+        },
+        {
+            id: 3,
+            nombre: 'Milas de pollo',
+            precio: 1100,
+            imagen: './assets/milasdepollo.png'
+        },
+        {
+            id: 4,
+            nombre: 'Alitas de pollo 2kg',
+            precio: 650,
+            imagen: './assets/alitasdepollo.jpg'
+        },
+        {
+            id: 5,
+            nombre: 'Patitas de pollo',
+            precio: 1350,
+            imagen: './assets/patitaspollo.jpg'
+        },
+        {
+            id: 6,
+            nombre: 'Milas rellenas de j y q',
+            precio: 1500,
+            imagen: './assets/6.jpg'
+        },
+        {
+            id: 7,
+            nombre: 'Milas rellenas de panceta y chedar',
+            precio: 1600,
+            imagen: './assets/7.jpg'
+        },
+        {
+            id: 8,
+            nombre: 'Albondigas rellenas de j y q',
+            precio: 1500,
+            imagen: './assets/8.jpg'
+        },
+        {
+            id: 9,
+            nombre: 'Ricosaurios',
+            precio: 1400,
+            imagen: './assets/9.jfif'
+        },
+        {
+            id: 10,
+            nombre: 'Papa Mc Kein',
+            precio: 990,
+            imagen: './assets/10.jpg'
+        },
+        {
+            id: 11,
+            nombre: 'Pechito con manta',
+            precio: 1250,
+            imagen: './assets/11.png'
+        },
+        {
+            id: 12,
+            nombre: 'Bondiolita',
+            precio: 1799,
+            imagen: './assets/filetmerluza.jpg'
+        },
+        {
+            id: 13,
+            nombre: 'Carre cortado en bife',
+            precio: 1250,
+            imagen: './assets/filetmerluza.jpg'
+        },
+        {
+            id: 14,
+            nombre: 'Matambrito',
+            precio: 1399,
+            imagen: './assets/filetmerluza.jpg'
+        },
+        {
+            id: 15,
+            nombre: 'Chorizo super cerdo',
+            precio: 1200,
+            imagen: './assets/filetmerluza.jpg'
+        }
 
-function Seguro(marca, year, tipo){
-    this.marca = marca;
-    this.year =  year;
-    this.tipo = tipo;
-}
+    ];
 
-// Realiza cotización
-Seguro.prototype.cotizarSeguro =  function(){
-    /*
-    1 = Renault 11
-    2 = Peugeot 12
-    3 = Ford 13
-    4 = Citroen 14
-    5 = Chevrolet 15
-    6 = Volkswagen 16
-    7 = Toyota 17
-    8 = Nissan 18
-    9 = Jeep 19
-    10 = BMW 20
-    */
+    let carrito = [];
+    const divisa = '$';
+    const DOMitems = document.querySelector('#items');
+    const DOMcarrito = document.querySelector('#carrito');
+    const DOMtotal = document.querySelector('#total');
+    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+    const DOMcomprar = document.querySelector('#comprar');
 
-   let cantidad;
-   const base = 2000;
+    // Funciones
 
-   switch(this.marca){
-    case '1':
-            cantidad = base * 11;
-            break;
-    case '2':
-            cantidad = base * 12;
-            break;
-    case '3':
-            cantidad = base * 13;
-            break;
-    case '4':
-            cantidad = base * 14;
-            break;
-    case '5':
-            cantidad = base * 15;
-            break;
-    case '6':
-            cantidad = base * 16;
-            break;
-    case '7':
-            cantidad = base * 17;
-            break;
-    case '8':
-            cantidad = base * 18;
-            break;
-    case '9':
-            cantidad = base * 19;
-            break;
-    case '10':
-            cantidad = base * 20;
-            break;
-    default:
-        break;
-   }
 
-    // leer año
-    const diferencia = new Date().getFullYear() - this.year;
-    // cada año que la diferencia es mayor se reduce el costo del seguro
-    cantidad -= ((diferencia * 3) * cantidad)/100;
-    /*
-    Si el seguro es Respon. civil se multiplica por un 22% mas.
-    Si el seguro es Terceros se multiplica por un 46% mas.
-    Si el seguro es Terceros completos se multiplica por un 61% mas.
-    Si el seguro es Todo riesgo se multiplica por un 94% mas.
-    */
-   if(this.tipo === 'civil'){
-       cantidad *= 0.22;
-    }else if(this.tipo === 'terceros'){
-        cantidad *= 0.46;
-    }else if(this.tipo === 'tercecompletos'){
-        cantidad *= 0.61;
-    }else if(this.tipo === 'todoriesgo'){
-    cantidad *= 0.94;
+    //Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
+
+    function renderizarProductos() {
+        baseDeDatos.forEach((info) => {
+            // Estructura
+            const miNodo = document.createElement('div');
+            miNodo.classList.add('card', 'col-sm-4');
+            // Body
+            const miNodoCardBody = document.createElement('div');
+            miNodoCardBody.classList.add('card-body');
+            // Titulo
+            const miNodoTitle = document.createElement('h5');
+            miNodoTitle.classList.add('card-title');
+            miNodoTitle.textContent = info.nombre;
+            // Imagen
+            const miNodoImagen = document.createElement('img');
+            miNodoImagen.classList.add('img-fluid');
+            miNodoImagen.setAttribute('src', info.imagen);
+            // Precio
+            const miNodoPrecio = document.createElement('p');
+            miNodoPrecio.classList.add('card-text');
+            miNodoPrecio.textContent = `${info.precio}${divisa}`;
+            // Boton 
+            const miNodoBoton = document.createElement('button');
+            miNodoBoton.classList.add('btn', 'btn-primary');
+            miNodoBoton.textContent = '+ Sumar';
+            miNodoBoton.setAttribute('marcador', info.id);
+            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+            // Insertamos
+            miNodoCardBody.appendChild(miNodoImagen);
+            miNodoCardBody.appendChild(miNodoTitle);
+            miNodoCardBody.appendChild(miNodoPrecio);
+            miNodoCardBody.appendChild(miNodoBoton);
+            miNodo.appendChild(miNodoCardBody);
+            DOMitems.appendChild(miNodo);
+        });
     }
 
-   return cantidad;
-}
 
-function UI(){  }
+    //Evento para añadir un producto al carrito de la compra
 
-UI.prototype.llenarOpciones = () =>{
-    const max = new Date().getFullYear(),
-          min = max -20;
-    
-    const selectYear = document.querySelector('#year');
+    function anyadirProductoAlCarrito(evento) {
+        // Anyadimos el Nodo a nuestro carrito
+        carrito.push(evento.target.getAttribute('marcador'))
+        // Actualizamos el carrito 
+        renderizarCarrito();
 
-    for(let i = max; i>min; i--){
-        let option =  document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        selectYear.appendChild(option);
-    }
-}
-
-// Mueatra alertas
-UI.prototype.mostrarMensaje = (mensaje,tipo) => {
-    const div = document.createElement('div');
-    if(tipo === 'error'){
-        div.classList.add('mensaje','error');
-    }else{
-        div.classList.add('mensaje','correcto');
-    }
-    
-    div.classList.add('mensaje', 'mt-10');
-    div.textContent = mensaje;
-    // insertar en html
-    const formulario = document.querySelector('#cotizar-seguro');
-    formulario.insertBefore(div, document.querySelector('#resultado'));
-
-    setTimeout(() => {
-        div.remove();
-    }, 2000);
-}
-
-UI.prototype.mostrarResultado = (total,seguro) =>{
-
-    const {marca, year, tipo} = seguro;
-    let txtMarca;
-    switch(marca){
-        case '1':
-            txtMarca = 'BMW';
-            break;
-        case '2':
-            txtMarca = 'Chevrolet';
-            break;
-        case '3':
-            txtMarca = 'Citroen';
-            break;
-        case '4':
-            txtMarca = 'Ford';
-            break;
-        case '5':
-            txtMarca = 'Jeep';
-            break;
-        case '6':
-            txtMarca = 'Nissan';
-            break;
-        case '7':
-            txtMarca = 'Peugeot';
-            break;
-        case '8':
-            txtMarca = 'Renault';
-            break;
-        case '9':
-            txtMarca = 'Toyota';
-            break;
-        case '10':
-            txtMarca = 'Volkswagen';
-            break;
-        default:
-            break;
     }
 
-    // Crear el resultado
-    const div = document.createElement('div');
-    div.classList.add('mt-10');
 
-    div.innerHTML = `
-    <p class='header'> Tu Resumen </p>
-    <p class='font-bold'> Marca: <span class='font-normal'> ${txtMarca}</span> </p>
-    <p class='font-bold'> Año: <span class='font-normal'> ${year}</span> </p>
-    <p class='font-bold'> Tipo: <span class='font-normal capitalize'> ${tipo}</span> </p>
-    <p class='font-bold'> Total: <span class='font-normal'> $${total}</span> </p>
+    //Dibuja todos los productos guardados en el carrito
 
-        `;
-    const resultadoDiv = document.querySelector('#resultado');
+    function renderizarCarrito() {
+        // Vaciamos todo el html
+        DOMcarrito.textContent = '';
+        // Quitamos los duplicados
+        const carritoSinDuplicados = [...new Set(carrito)];
+        // Generamos los Nodos a partir de carrito
+        carritoSinDuplicados.forEach((item) => {
+            // Obtenemos el item que necesitamos de la variable base de datos
+            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                // ¿Coincide las id? Solo puede existir un caso
+                return itemBaseDatos.id === parseInt(item);
+            });
+            // Cuenta el número de veces que se repite el producto
+            const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
+                return itemId === item ? total += 1 : total;
+            }, 0);
+            // Creamos el nodo del item del carrito
+            const miNodo = document.createElement('li');
+            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+            // Boton de borrar
+            const miBoton = document.createElement('button');
+            miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+            miBoton.textContent = 'X';
+            miBoton.style.marginLeft = '1rem';
+            miBoton.dataset.item = item;
+            miBoton.addEventListener('click', borrarItemCarrito);
+            // Mezclamos nodos
+            miNodo.appendChild(miBoton);
+            DOMcarrito.appendChild(miNodo);
+        });
+       // Renderizamos el precio total en el HTML
+        DOMtotal.textContent = calcularTotal();
+    }
+
+
+    //Evento para borrar un elemento del carrito
+
+    function borrarItemCarrito(evento) {
+        // Obtenemos el producto ID que hay en el boton pulsado
+        const id = evento.target.dataset.item;
+        // Borramos todos los productos
+        carrito = carrito.filter((carritoId) => {
+            return carritoId !== id;
+        });
+        // volvemos a renderizar
+        renderizarCarrito();
+    }
+
+
+    /**
+     * Calcula el precio total teniendo en cuenta los productos repetidos
+     */
+    function calcularTotal() {
+        // Recorremos el array del carrito 
+        return carrito.reduce((total, item) => {
+            // De cada elemento obtenemos su precio
+            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                return itemBaseDatos.id === parseInt(item);
+            });
+            // Los sumamos al total
+            return total + miItem[0].precio;
+        }, 0).toFixed(2);
+    }
+
+
+    //Varia el carrito y vuelve a dibujarlo
     
-    // Mostrar spinner
-    const spinner = document.querySelector('#cargando');
-    spinner.style.display = 'block';
-    setTimeout(() => {
-        spinner.style.display = 'none';
-        // se borra el spinner y se muestra el resultado
-        resultadoDiv.appendChild(div);
-    }, 2000);
-    
-
-}
-
-// Instanciar UI
-const ui = new UI();
+    function vaciarCarrito() {
+        //Pop up
+        Swal.fire(
+            'Se vacio el carrito con exito',
+            '',
+            'success'
+        )
+        // Limpiamos los productos guardados
+        carrito = [];
+        // Renderizamos los cambios
+        renderizarCarrito();
+    }
 
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    ui.llenarOpciones();
+
+
+    //Comprar productos
+    //function comprar(){ 
+    //    Swal.fire({       
+    //        title: 'Ya tenes todos los productos?',
+    //        confirmButtonText:'<a href="https://wa.me/5211234567890?text=Hola%20me%20gustaria%20saber%20el%20precio">Vamos a pagar</a>',
+    //    }
+    //)};
+
+
+    // Eventos
+    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+    //DOMcomprar.addEventListener('click', comprar);
+    DOMcomprar.addEventListener("click", function() {
+        var message = "¿Estás seguro que quieres comprar estos productos?";
+        
+        for (var i = 0; i < DOMcarrito.children.length; i++) {
+            message += "- " + DOMcarrito.children[i].textContent + "\n";
+        }
+        
+        if (confirm(message)) {
+            window.location.href = "https://www.example.com/pagar";
+        }
+    });
+
+
+    // Inicio
+    renderizarProductos();
+    renderizarCarrito();
+
+
+
+
+
 });
-
-eventListeners();
-
-function eventListeners(){
-    
-    const formulario = document.querySelector('#cotizar-seguro');
-    formulario.addEventListener('submit', cotizarSeguro);
-}
-
-
-function cotizarSeguro(e){
-    e.preventDefault();
-
-    // leer marca seleccionada
-    const marca = document.querySelector('#marca').value;
-    // leer año seleccionado
-    const year = document.querySelector('#year').value;
-    // leer tipo cobertura
-    const tipo = document.querySelector('input[name=tipo]:checked').value;
-
-    if(marca === '' || year === '' || tipo === ''){
-        ui.mostrarMensaje('Todos los campos son obligatorios', 'error');
-        return;
-    }
-    ui.mostrarMensaje('Cotizando...', 'exito');
-    // ocultar cotizaciones previas
-    const resultados = document.querySelector('#resultado div');
-    if(resultados != null){
-        resultados.remove();
-    }
-    // instanciar seguro
-    const seguro = new Seguro(marca, year, tipo);
-    const total = seguro.cotizarSeguro();
-    // use prototype que va a cotizar
-    ui.mostrarResultado(total, seguro);
-
-}
