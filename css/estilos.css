@@ -1,146 +1,38 @@
-  
-body {
-    background: #e96443;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #904e95, #e96443); 
-  }
+@charset "UTF-8";
+/* line 1, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .btn.btn-raised.btn-primary {
-    background-color: #00838F!important;
-    font-size: 16px;
-    width: 100%;
-    padding: 15px;
-  }
+/* line 7, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.fondo {
+  width: 50%;
+  height: 50%;
+  position: fixed;
+  opacity: 0.5;
+  z-index: -1;
+}
 
-  .error {
-    background-color: #FBE9E7;
-    border: 1px solid #F4511E;
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #F4511E;
-  }
-
-  .correcto {
-    background-color: rgb(211, 249, 187);
-    border: 1px solid rgb(50, 167, 0);
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: rgb(4, 150, 50);
-  }
-
-  .error p {
-    margin:0;
-  }
-
-  #contenido {
-    margin-top: 60px;
-    background-color: white;
-    -webkit-box-shadow: 0px 21px 46px -15px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 21px 46px -15px rgba(0,0,0,1);
-    box-shadow: 0px 21px 46px -15px rgba(0,0,0,1);
-  }
-
-  .contenido-formulario {
-    margin-top: 30px;
-  }
-
-  #cargando {
-    text-align: center;
-  }
-
-  #cargando img {
-    display: none;
-    margin: 0 auto;
-  }
-
-  #resultado  {
-    margin-bottom: 40px;
-  }
-
-  #resultado div {
-    border: 1px solid #26C6DA;
-    text-align: center;
-    padding: 0  0 20px 0;
-  }
-
-  #resultado div p {
-    margin-bottom: 0;
-  }
-
-  #resultado div p.header {
-    background-color: #26C6DA;
-    margin-bottom: 10px;
-    color:white;
-    padding: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  .spinner {
-    margin: 100px auto;
-    width: 50px;
-    height: 40px;
-    text-align: center;
-    font-size: 10px;
-  }
-  
-  .spinner > div {
-    background-color: #26C6DA;
-    height: 100%;
-    width: 6px;
-    display: inline-block;
-    
-    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-    animation: sk-stretchdelay 1.2s infinite ease-in-out;
-  }
-  
-  .spinner .rect2 {
-    -webkit-animation-delay: -1.1s;
-    animation-delay: -1.1s;
-  }
-  
-  .spinner .rect3 {
-    -webkit-animation-delay: -1.0s;
-    animation-delay: -1.0s;
-  }
-  
-  .spinner .rect4 {
-    -webkit-animation-delay: -0.9s;
-    animation-delay: -0.9s;
-  }
-  
-  .spinner .rect5 {
-    -webkit-animation-delay: -0.8s;
-    animation-delay: -0.8s;
-  }
-  
-  @-webkit-keyframes sk-stretchdelay {
-    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
-    20% { -webkit-transform: scaleY(1.0) }
-  }
-  
-  @keyframes sk-stretchdelay {
-    0%, 40%, 100% { 
-      transform: scaleY(0.4);
-      -webkit-transform: scaleY(0.4);
-    }  20% { 
-      transform: scaleY(1.0);
-      -webkit-transform: scaleY(1.0);
-    }
-  }
-
-
-
-  /* COMIENZO NAV */
+/* COMIENZO NAV */
+/* line 16, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_1 {
-  background: #151b60;
+  background: #1764ff;
   height: 80px;
   color: #ffffff;
   z-index: 100%;
+  width: 100%;
+  /* hacemos que la cabecera ocupe el ancho completo de la página */
+  left: 0;
+  /* Posicionamos la cabecera al lado izquierdo */
+  top: 0;
+  /* Posicionamos la cabecera pegada arriba */
+  position: fixed;
+  z-index: 100;
 }
 
+/* line 28, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_container {
   display: flex;
   height: 100%;
@@ -150,23 +42,27 @@ body {
   align-items: center;
 }
 
+/* line 37, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_logo {
   font-size: 1.5em;
   font-weight: 900;
 }
 
+/* line 42, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_menu {
   display: grid;
   grid-auto-flow: column;
   gap: 3em;
 }
 
+/* line 48, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_item {
   color: #ffffff;
   text-decoration: none;
   --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
 }
 
+/* line 53, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_item ::after {
   content: "";
   display: block;
@@ -178,19 +74,334 @@ body {
   transition: clip-path 0.3s;
 }
 
+/* line 64, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_item :hover {
   --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
+/* line 69, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_input {
   display: none;
 }
 
+/* line 73, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_input:checked + .nav_menu {
   background: #99e0ea;
 }
 
+/* line 77, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
 .nav_label,
 .nav_input {
   display: none;
 }
+
+/* Rotacion infinita del logo */
+/* line 83, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.rotate {
+  animation: rotation 3s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/* Fin Rotacion infinita del logo */
+/* FIN NAV */
+/* Comienzo menu principal*/
+/* Tarjetas */
+/* line 103, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.container {
+  margin-top: 100px;
+}
+
+/* line 108, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.container h1 {
+  text-align: center;
+  padding: 30px;
+}
+
+/* line 113, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.row h4 {
+  font-size: 20px;
+  width: 250px;
+}
+
+/* line 119, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgmilaspollo {
+  width: 300px;
+  border-radius: 50%;
+}
+
+/* line 124, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgpataymuslo {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* line 129, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgpechuga {
+  width: 200px;
+  border-radius: 50%;
+  height: 200px;
+}
+
+/* line 135, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgpapabaston {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* line 140, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgpollo {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* line 145, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgalitadepollo {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* line 150, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgmedapollo {
+  width: 150px;
+  border-radius: 50%;
+}
+
+/* line 155, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgpatitaspollo {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* line 160, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgbocacalamuza {
+  width: 180px;
+  border-radius: 50%;
+}
+
+/* line 165, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.imgricosaurios {
+  width: 180px;
+  border-radius: 50%;
+}
+
+/* line 171, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.card-body {
+  border-radius: 10px;
+  height: 350px;
+}
+
+/* Tarjetas */
+/* Fin menu principal*/
+/* line 182, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.mostrar_carrito {
+  width: 30px;
+}
+
+/*COMIENZO LOGO WHATSAPP FLOTANTE*/
+/* line 189, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.whatsapp {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  z-index: 100;
+}
+
+/* line 203, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.whatsapp-icon {
+  margin-top: 13px;
+}
+
+/*FIN LOGO WHATSAPP FLOTANTE*/
+/*COMIENZO PIE DE PAGINA*/
+/* line 210, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+footer {
+  min-height: 70px;
+  background-color: #afafaf;
+  background-image: -moz-linear-gradient(top, #191919, #000000);
+  background-image: -o-linear-gradient(top, #191919, #000000);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #191919), color-stop(1, #000000));
+  background-image: -webkit-linear-gradient(#191919, #000000);
+  background-image: linear-gradient(top, #191919, #000000);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr="#191919", endColorStr="#000000");
+  border-top: 1px solid rgba(50, 50, 50, 0.3);
+  width: 100%;
+  position: relative;
+  clear: both;
+  margin-top: 10%;
+  padding-top: 0px;
+  overflow: visible;
+  color: #ffffff;
+  justify-content: center;
+  text-align: center;
+  line-height: 70px;
+}
+
+/* line 238, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.footer {
+  border-top: 1px solid #222;
+}
+
+/*FIN PIE DE PAGINA*/
+/*COMIENZO SECCION CONTACTO*/
+/* line 246, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.mapa iframe {
+  width: 100%;
+  height: 400px;
+}
+
+/* line 251, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.information {
+  padding: 30px;
+  width: 100%;
+  border-left: 1px solid #d4cee8;
+}
+
+/* line 256, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+.information span {
+  display: block;
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+/*FIN SECCION CONTACTO*/
+/*COMIENZO DE RESPONSIVE CELULAR*/
+@media (max-width: 320px) {
+  /*COMIENZO ESTILOS INDEX*/
+  /* line 268, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_label {
+    display: block;
+    cursor: pointer;
+  }
+  /* line 273, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_item {
+    color: #fefefe;
+    text-decoration: none;
+    background: #405498;
+    border-radius: 100px;
+    width: 100%;
+    text-align: center;
+    --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  /* line 282, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_item :hover {
+    --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  /* line 286, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_item ::after {
+    content: "";
+    display: block;
+    background: #fff;
+    width: 90%;
+    margin-top: 3px;
+    height: 3px;
+    clip-path: var(--clippy);
+    transition: clip-path 0.3s;
+  }
+  /* line 298, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_input:checked + .nav_menu {
+    clip-path: circle(100% at center);
+  }
+  /* line 302, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .mapa {
+    width: 100%;
+    height: auto;
+  }
+  /* line 307, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .app {
+    width: 20px;
+  }
+  /* line 311, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .direccion {
+    width: 20px;
+  }
+  /* line 315, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .dia_hora {
+    width: 20px;
+  }
+  /* line 319, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .information p {
+    font-size: 15px;
+  }
+  /* line 323, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .information {
+    padding: 10px;
+    width: 100%;
+  }
+  /*COMIENZO ESTILOS CONTACTO*/
+}
+
+/*FIN DE RESPONSIVE CELULAR*/
+/*COMIENZO DE RESPONSIVE TABLET*/
+@media (max-width: 768px) {
+  /* line 334, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_logo {
+    font-size: 15px;
+  }
+  /* line 338, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_label {
+    display: block;
+    cursor: pointer;
+  }
+  /* line 343, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_menu {
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    background: #411010;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    clip-path: circle(0 at center);
+    transition: clip-path 1s ease-in-out;
+    z-index: 100;
+    font-size: 20px;
+  }
+  /* line 360, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_item {
+    color: #fefefe;
+    text-decoration: none;
+    background: #405498;
+    border-radius: 100px;
+    width: 100%;
+    text-align: center;
+    --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  /* line 369, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_item :hover {
+    --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  /* line 373, ../../../OneDrive - Prisma Medios de Pago/Escritorio/Mis cosas/Pollosdelbueno/proyecto/sass/estilos.scss */
+  .nav_item ::after {
+    content: "";
+    display: block;
+    background: #fff;
+    width: 90%;
+    margin-top: 3px;
+    height: 3px;
+    clip-path: var(--clippy);
+    transition: clip-path 0.3s;
+  }
+}
+
+/*COMIENZO DE RESPONSIVE CELULAR*/
+/*FIN DE RESPONSIVE CELULAR*/
+
+/*# sourceMappingURL=estilos.css.map */
